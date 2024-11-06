@@ -7,78 +7,197 @@ body{
     font-family: Arial, sans-serif;
 }
 
-header{
+header {
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0; /* Dodanie cienkiej linii u dołu nagłówka */
 }
-.container{
+
+.container {
     width: 1352px;
     margin: 0 auto;
     display: flex;
-    justify-self: space-between;
+    justify-content: space-between;
     align-items: center;
-    padding:20px 0;
+    padding: 20px 0;
 }
-.logo{
+
+.logo {
     font-size: 24px;
     font-weight: bold;
-    color: blue;
+    color: #00aaff; /* Niebieski kolor dla logo */
 }
 
 nav ul {
     list-style: none;
-    display:flex;
-    gap: 20px;
-    
+    display: flex;
+    gap: 40px; /* Dodatkowy odstęp między elementami nawigacji */
+}
+
+nav ul li {
+    position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: gray;
-    font-size: 18px;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-nav ul li a:hover {
-    color: black;
-    text-decoration: underline;
-}
-/* Opening Section Styling */
-.open-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 500px;
-    background-image: url(../img/Background.png);
-    background-size:cover;
-    background-position: bottom;
-    text-align: center;
-    color:#333;
+    color: #aaa; /* Szary kolor dla nieaktywnych linków */
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
 }
 
-.opening-section h1{
-    font-size: 48px;
-    margin-bottom:10px;
+nav ul li a:hover {
+    color: #333; /* Zmiana koloru na ciemniejszy po najechaniu */
+}
+
+/* Styl dla aktywnego linku */
+nav ul li.active a {
+    color: #333; /* Ciemny kolor tekstu dla aktywnego linku */
+    font-weight: bold;
+}
+
+nav ul li.active::after
+nav ul li:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -7px; /* Umieszczenie linii tuż pod linkiem */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00aaff; /* Niebieski kolor dla linii */
+    border-radius: 2px;
+}
+
+/* Dodaj efekt hover, aby linia pojawiła się po najechaniu */
+nav ul li:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -25px; /* Ustawienie linii 2px poniżej linku */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00aaff; /* Niebieski kolor dla linii */
+    border-radius: 2px;
+}
+.opening-section {
+    text-align: center;
+    color: #333;
+    padding: 100px 0 50px; /* Dostosowane odstępy z góry i dołu */
+    background-color: white;
+}
+
+.opening-section h1 {
+    font-size: 56px; /* Duży rozmiar czcionki, podobny do obrazka */
+    font-weight: bold;
+    margin-bottom: 20px; /* Odstęp między h1 a paragrafem */
+    color: #333;
 }
 
 .opening-section p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #555;
-
+    font-size: 20px; /* Zwiększony rozmiar czcionki */
+    color: #666; /* Lżejszy kolor tekstu */
+    margin-bottom: 30px; /* Odstęp między paragrafem a przyciskiem */
 }
 
-.cta button{
+.cta-button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 15px 40px; /* Większy padding dla bardziej masywnego wyglądu */
     background-color: #00aaff;
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: background-color 0.3 ease;
+    font-size: 20px; /* Zwiększony rozmiar czcionki w przycisku */
+    font-weight: bold;
+    border-radius: 50px; /* Zaokrąglony przycisk, podobny do obrazka */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtelny cień dla efektu trójwymiarowego */
+}
 
-}
 .cta-button:hover {
-    background-color: #008ecc;
+    background-color: #008ecc; /* Zmiana koloru po najechaniu */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Większy cień przy hover */
 }
+
+  .statistic {
+        text-align: center;
+        color: #333;
+        padding: 50px 0;
+    }
+
+    .statistic h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 60px; /* Increased margin to push stats further down */
+        color: #333;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        gap: 100px; /* Space between columns */
+    }
+
+    .stat {
+        text-align: center;
+        position: relative;
+        width: 150px;
+    }
+
+    .stat-icon {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        z-index: 1; /* Ensure icons are above circles */
+        top: -30px;
+         /* Move the icon up to partially overlap the circle */
+    }
+
+    .circle {
+        position: absolute;
+        top: 10px; /* Adjusted to place the circle behind and lower than the icon */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    .stat-icon img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .circle.pink {
+        background-color: #FF6B6B;
+    }
+
+    .stat-icon img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transform: translate(30px, 20px); /* Przesunięcie ikony w dół i w prawo */    }
+    .circle.blue {
+        background-color: #4D9DFF;
+    }
+
+    .circle.green {
+        background-color: #4ADE80;
+    }
+
+    .stat-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        letter-spacing: 2px;
+        margin-top: 10px; /* Adds space between icon and number */
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        color: #888;
+        margin-top: 10px; /* Space between number and label */
+    }
