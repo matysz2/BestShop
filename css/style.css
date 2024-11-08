@@ -201,3 +201,390 @@ nav ul li:hover::after {
         color: #888;
         margin-top: 10px; /* Space between number and label */
     }
+
+    .benefity {
+        width: 60%; /* Dopasowanie szerokości sekcji */
+        margin: auto; /* Wyśrodkowanie sekcji */
+        padding: 20px 0;
+        background-color: #fff;
+    }
+    
+    .row {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        align-items: center;
+        position: relative; /* Dodano dla pseudo-elementu */
+    }
+    
+    .row .text, .row .image {
+        flex: 1;
+        padding: 20px;
+    }
+    
+    .row .text {
+        order: 1;
+    }
+    
+    .row .image {
+        order: 2;
+        text-align: center;
+        position: relative; /* Dodano dla pseudo-elementu */
+    }
+    
+    .row:nth-child(even) .text {
+        order: 2;
+    }
+    
+    .row:nth-child(even) .image {
+        order: 1;
+    }
+    
+    .row .text h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .row .text p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+    
+    .row:first-child .text p {
+        border-bottom: 2px solid #ff4b4b; /* Czerwona linia pod pierwszym tekstem */
+        padding-bottom: 10px; /* Odstęp między tekstem a linią */
+    }
+    
+    .row:nth-child(2) .text p {
+        border-bottom: 2px solid #007bff; /* Niebieska linia pod drugim tekstem */
+        padding-bottom: 10px; /* Odstęp między tekstem a linią */
+    }
+    
+    .row:first-child .image::before {
+        content: '';
+        position: absolute;
+        top: -20%; /* Dopasowanie pozycji kwadratu */
+        right: -20%;
+        width: 80px; /* Szerokość kwadratu */
+        height: 80px; /* Wysokość kwadratu */
+        background-color: #ff4b4b; /* Czerwony kolor */
+        transform: rotate(45deg); /* Obrót kwadratu */
+        z-index: -1; /* Umieszczenie za obrazkiem */
+    }
+    
+    .row .image img {
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        background-color: transparent;
+    
+    }
+    
+    .last-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px auto; /* Wyśrodkowanie */
+        padding: 20px;
+    }
+    
+    .last-row .text {
+        flex: 1;
+        background-color: transparent; /* Brak tła dla tekstu */
+    }
+    
+    .last-row .text h2, .last-row .text p {
+        color: #000; /* Kolor tekstu czarny lub zgodny z resztą stylu */
+    }
+    
+    .last-row .text p {
+        border-bottom: 2px solid #3bc; /* Linia pod tekstem */
+        padding-bottom: 10px;
+    }
+    
+    .last-row .image {
+        flex: 0.4; /* Zmniejszenie szerokości obrazu */
+        background-color: #3bc; /* Tło tylko za obrazkiem */
+        padding: 20px; /* Dodanie odstępu wewnętrznego */
+        border-radius: 8px; /* Zaokrąglenie rogów obrazu */
+        text-align: center;
+    }
+    
+    .last-row .image img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+        .last-row {
+            flex-direction: column;
+            max-width: 100%; /* Pełna szerokość na małych ekranach */
+            margin-top: 20px;
+        }
+        .last-row .image {
+            margin-top: 20px;
+        }
+    }
+
+
+    .pricing{
+        display:flex;
+        justify-content: space-between;
+        padding: 20px;
+        align-items: center;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .pricing-box {
+        border-radius: 10px;
+        padding:20px;
+        width: 30%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .pricing-box.premium {
+        border: 2px solid green;;
+    }
+    .pricing-box h2 {
+        font-size: 1.5rem;
+        margin-bottom:20px;
+    }
+    .pricing-box .price {
+        font-size: 2rem;
+        margin-bottom: 50px;
+      
+    }
+     .price:first-child{
+        color: red;
+    }
+    .pricing-box .limited-offer{
+        font-size: 0.8rem;
+        color: #777;
+    }
+    .pricing-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .pricing-box li {
+        font-size: 1rem;
+        margin: 5px 0;
+        position: relative;
+        line-height: 25px;
+        padding-left: 20px;
+    }
+.pricing-box li::before{
+    content: '✔';
+    position: absolute;
+    left: 50px;
+    color: green;
+    font-weight: bold;
+
+}
+
+.pricing-box.unavailable::before{
+    content: '✘';
+    color: red;
+}
+.pricing-box .unavailable {
+    color: #999;
+    text-decoration: line-through;/* line-through przekreślona text */
+}
+
+.btn{
+    position: absolute;
+    display:inline-block;
+    text-decoration: none;
+    color:white;
+    padding: 10px 40px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    margin-left: -50px;
+}
+.pricing-box.basic .btn {
+    background-color: #ff6b6b; /* Kolor tła przycisku w sekcji Basic */
+}
+
+.pricing-box.professional .btn {
+    background-color: #007bff; /* Kolor tła przycisku w sekcji Professional */
+}
+
+.pricing-box.premium .btn {
+    background-color: #4ADE80; /* Kolor tła przycisku w sekcji Premium */
+}
+
+
+.bt:hover{
+    background-color: #e85050;
+}
+
+/* Highlight the professional plan */
+.pricing-box.highlighted {
+    border-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.pricing-box.professional .btn {
+    background-color: #007bff;
+}
+
+.pricing-box.professional .btn:hover {
+    background-color: #0056b3;
+}
+.pricing-box.basic p{
+    color: red;
+   /* Kolor dla pierwszego elementu <p> w każdym pricing-box */
+}
+.pricing-box.basic {
+  border: 2px solid red;
+} 
+.pricing-box.professional p{
+    color:blue;
+}
+.pricing-box.premium p {
+    color: green;
+}
+.pricing-box.professional {
+    border: 2px solid blue;
+}
+
+.contact-section {
+    display: flex;
+    gap: 50px;
+    padding: 50px;
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .contact-info {
+    flex: 1;
+  }
+  
+  .contact-info h2 {
+    font-size: 2em;
+  }
+  
+  .contact-details {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-email::before {
+    content: "📧";
+    margin-right: 5px;
+  }
+  
+  .icon-phone::before {
+    content: "📞";
+    margin-right: 5px;
+  }
+  
+  .contact-form {
+    flex: 1;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #0088cc;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin-top: 5px;
+    outline: none;
+  }
+  
+  .contact-form input[type="text"]:focus,
+  .contact-form input[type="email"]:focus {
+    border-bottom: 2px solid #00bfff;
+  }
+  
+  .custom-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+  
+  .custom-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  
+  .custom-checkbox label {
+    font-size: 0.8em;
+  }
+  
+  button {
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-end;
+  }
+  
+  button:hover {
+    background-color: #008ecc;
+  }
+  .contact-info h2{ 
+    margin-bottom: 25px;
+  }
+
+  .footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Możesz dostosować kolor tła */
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-left{
+    font-size: 1.2rem;
+    padding: 0 60px;}
+
+.footer-left h2 {
+    color: #00bfff; /* Kolor tekstu dla nagłówka */
+    margin: 0;
+  
+}
+.footer-left p {
+    color: #888;
+    margin: 5px 0 0;
+    font-size: 7px;
+}
+.footer-right {
+    display: flex;
+    gap: 10px;
+    padding: 0 60px;
+  }
+  
+  .social-icon {
+    text-decoration: none;
+    font-size: 1.5em;
+  }
+  
